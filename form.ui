@@ -229,7 +229,7 @@
   <customwidget>
    <class>Scenezoom</class>
    <extends>QGraphicsView</extends>
-   <header location="global">scenezoom.h</header>
+   <header location="global">kolya_headers/scenezoom.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
