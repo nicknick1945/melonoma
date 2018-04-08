@@ -1,5 +1,0 @@
-<RCC>
-    <qresource perfix="text" >
-        <file>logLevel.txt</file>
-    </qresource>
-</RCC>
