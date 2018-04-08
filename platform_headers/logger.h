@@ -2,9 +2,7 @@
 #define LOGGER_H
 #include "qstring.h"
 
-enum LogLevel {
-INFO ,DEBUG ,ERROR
-};
+enum LogLevel{INFO,DEBUG,ERROR};
 
 enum WorkRegim{
     LOAD_BY_MASSEG,LOAD_ON_START

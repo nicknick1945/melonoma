@@ -13,6 +13,9 @@
 #include "platform_headers/defaultwidgetmodel.h"
 #include <functional>
 #include "sasha/sashawindow.h"
+#include "semion/widget.h"
+#include "ilya/mainwindow.h"
+#include "timofey/timofeywindow.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -84,6 +87,19 @@ void MainWindow::addWidgets()
     DefaultWidgetModel *sashaForm = new DefaultWidgetModel(new SashaWidget(ui->centralWidget));
     setWidgetsGeometry(*sashaForm);
     widgets->append(sashaForm);
+
+    DefaultWidgetModel *semionForm= new DefaultWidgetModel(new Widget(ui->centralWidget));
+    setWidgetsGeometry(*semionForm);
+    widgets->append(semionForm);
+
+    DefaultWidgetModel *timofeyForm = new DefaultWidgetModel(new TimofeyWindow(ui->centralWidget));
+    setWidgetsGeometry(*timofeyForm);
+    widgets->append(timofeyForm);
+
+//    DefaultWidgetModel *ilyaForm= new DefaultWidgetModel(new Widget(ui->centralWidget));
+//    setWidgetsGeometry(*ilyaForm);
+//    widgets->append(ilyaForm);
+
 
     // todo сюды добавлять аналогично как с kolaynForm
 }
