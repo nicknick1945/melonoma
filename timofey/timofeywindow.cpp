@@ -29,6 +29,7 @@ TimofeyWindow::~TimofeyWindow()
 
 void TimofeyWindow::on_pushButton_clicked()
 {
+
     imagePath = QFileDialog::getOpenFileName();
     if (imagePath != "")
     {
