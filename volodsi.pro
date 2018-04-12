@@ -42,7 +42,7 @@ SOURCES += main.cpp\
     kolay_impl/utils.cpp \
     kolay_impl/sobelfilter.cpp \
     kolay_impl/gaussfilter.cpp \
-    kolay_impl/medianfilter.cpp \
+#    kolay_impl/medianfilter.cpp \
     kolay_impl/mysuperfilter.cpp \
     kolay_impl/skiletizationfilter.cpp \
     kolay_impl/otsybinarizer.cpp \
@@ -87,7 +87,7 @@ SOURCES += main.cpp\
     timofey/haralickfeatures.cpp\
     timofey/timofeywindow.cpp\
     timofey/kernel.cpp\
-    timofey/timofeyzoom.cpp\
+    timofey/timofeyzoom.cpp
 #	ilya/transformations.cpp\
 #	ilya/scenezoom.cpp\
 #	ilya/mainwindow.cpp\
@@ -104,7 +104,7 @@ HEADERS  += kolya_headers/engine.h \
     kolya_headers/contrastfilter.h \
     kolya_headers/sobelfilter.h \
     kolya_headers/gaussfilter.h \
-    kolya_headers/medianfilter.h \
+#    kolya_headers/medianfilter.h \
     kolya_headers/mysuperfilter.h \
     kolya_headers/skiletizationfilter.h \
     kolya_headers/otsybinarizer.h \
