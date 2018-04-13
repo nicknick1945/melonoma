@@ -14,7 +14,7 @@
 #include <functional>
 #include "sasha/sashawindow.h"
 #include "semion/widget.h"
-#include "ilya/mainwindow.h"
+//#include "ilya/mainwindow.h"
 #include "timofey/timofeywindow.h"
 
 
