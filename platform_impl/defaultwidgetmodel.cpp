@@ -17,10 +17,12 @@ void DefaultWidgetModel::show()
     logger->info(*massege);
     widget->onLoad();
     widget->show();
+
 }
 
 void DefaultWidgetModel::close()
 {
+    widget->unlockNextButton();
     widget->preDestroy();
     widget->close();
 }

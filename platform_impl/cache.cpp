@@ -11,12 +11,12 @@ void Cache::clearCache()
 {
 }
 
-QImage Cache::getLoadedImage()
+QImage *Cache::getLoadedImage()
 {
     return image;
 }
 
-void Cache::setStartImage(QImage &_image)
+void Cache::setStartImage(QImage *_image)
 {
     image = _image;
 }

@@ -14,10 +14,17 @@ Form::Form(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void Form::onLoad()
+{
+    logger->info("функция  класса ребенка");
+    setImageToScen(*cache->getLoadedImage());
+}
+
 Form::~Form()
 {
     delete ui;
 }
+
 
 
 void Form::on_downloadPhotoButton_clicked(){

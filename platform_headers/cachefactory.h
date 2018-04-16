@@ -13,20 +13,4 @@ public :
      Cache* getInstance();
 };
 
-/*
- * class Logger;
-
-class LoggerFactory
-{
-public:
-    LoggerFactory();
-private :
-    static Logger* instance;
-
-public :
-    Logger* getInstance();
-};
-
- * */
-
 #endif // CACHEFACTORY_H

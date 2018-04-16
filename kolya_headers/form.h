@@ -24,6 +24,7 @@ public:
     Engine *engine = new Engine();
     QString* getWidgetName();
     explicit Form(QWidget *parent = 0);
+    void onLoad();
     ~Form();
 
 private slots:
