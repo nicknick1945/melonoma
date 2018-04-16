@@ -23,7 +23,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     QList<DefaultWidgetModel*> *widgets;
     QWidget *currentForm ;
+    void lockNextNutton();
+    void unlockNextButton();
     ~MainWindow();
+
+    void next();
 
 private slots:
     void on_nextButton_clicked();

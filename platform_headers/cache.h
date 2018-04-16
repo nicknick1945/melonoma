@@ -8,10 +8,11 @@ class Cache
 public:
     Cache();
     void clearCache();
-    QImage getLoadedImage();
-    void setStartImage(QImage &iamge);
+    QImage*  getLoadedImage();
+    void setStartImage(QImage *iamge);
+
 private:
-    QImage image;
+    QImage *image;
 };
 
 #endif // CACHE_H

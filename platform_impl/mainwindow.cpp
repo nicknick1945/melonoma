@@ -20,12 +20,22 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
+    ui(new Ui::MainWindow){
+
     ui->setupUi(this);
     ui->previous->hide();
     widgets = new QList<DefaultWidgetModel*>();
     addWidgets();
+}
+
+void MainWindow::lockNextNutton()
+{
+    ui->nextButton->setEnabled(false);
+}
+
+void MainWindow::unlockNextButton()
+{
+    ui->nextButton->setEnabled(true);
 }
 
 MainWindow::~MainWindow()
@@ -34,16 +44,15 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::setWidgetsGeometry(DefaultWidgetModel &widget)
-{
+void MainWindow::setWidgetsGeometry(DefaultWidgetModel &widget){
+    widget.widget->setMainWindow(this);
     widget.setGeometry(30,30,900,530);
     widget.close();
 }
 
 
-void MainWindow::on_nextButton_clicked()
+void MainWindow::next()
 {
-
     for(int i = 0 ; i < widgets->size() ; i ++ ){
         widgets->at(i)->close();
     }
@@ -54,12 +63,13 @@ void MainWindow::on_nextButton_clicked()
     }
     currentWidgetNumber = currentWidgetNumber+1;
     this->update();
-
-
 }
 
-void MainWindow::on_previous_clicked()
-{
+void MainWindow::on_nextButton_clicked(){
+    next();
+}
+
+void MainWindow::on_previous_clicked(){
     for(int i = 0 ; i < widgets->size() ; i ++ ){
         widgets->at(i)->close();
     }
@@ -105,10 +115,12 @@ void MainWindow::addWidgets()
 }
 
 
+
 void MainWindow::on_LoadPhotoButton_clicked()
 {
     QString imagePath = QFileDialog::getOpenFileName();
     logger->debug("Путь к загружаемой фотографии:");
     logger->debug(imagePath);
     QImage *originalImage = Utils::loadImage(imagePath);
+    cache->setStartImage(originalImage);
 }

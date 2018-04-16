@@ -12,9 +12,7 @@ StartForm::StartForm(QWidget *parent) :
     ui->setupUi(this);
     Cache* cache = cahceFactory->getInstance();
     QImage* image = new QImage();
-    cache->setStartImage(*image);
-    QImage image2 = cache->getLoadedImage();
-
+    cache->setStartImage(image);
 }
 
 QString* StartForm::getWidgetName()
@@ -30,4 +28,14 @@ StartForm::~StartForm()
 
 void StartForm::on_downloadPhotoButton_clicked()
 {
+}
+
+void StartForm::on_pushButton_clicked()
+{
+    nextWidget();
+}
+
+void StartForm::on_pushButton_2_clicked()
+{
+    lockNextButton();
 }
