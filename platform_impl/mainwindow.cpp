@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->previous->hide();
     widgets = new QList<DefaultWidgetModel*>();
+    subProcesses = new QHash<QString,DefaultWidgetModel*>();
     addWidgets();
 }
 
@@ -41,6 +42,34 @@ void MainWindow::unlockNextButton()
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::goToSubProcess(QString subProcessName)
+{
+    if(subProcesses->contains(subProcessName)){
+        widgets->at(currentWidgetNumber)->close();
+        QString message = "sub Process name ";
+        message.append(subProcessName);
+        logger->debug(message);
+        currentSubProcessName = new QString(subProcessName);
+        subProcesses->value(subProcessName)->show();
+
+    }else {
+        logger->error("sub process not found");
+    }
+}
+
+void MainWindow::returnFromSubProcess()
+{
+    if(subProcesses->contains(*currentSubProcessName)){
+        subProcesses->value(*currentSubProcessName)->close();
+        QString message = "return form subprocess name ";
+        message.append(*currentSubProcessName);
+        logger->debug(message);
+        widgets->at(currentWidgetNumber)->onReturnFromSubProcess();
+    }else {
+        logger->error("mega error nu vse trendec");
+    }
 }
 
 
@@ -85,7 +114,8 @@ void MainWindow::on_previous_clicked(){
 void MainWindow::addWidgets()
 {
 
-    DefaultWidgetModel *startForm = new DefaultWidgetModel(new StartForm(ui->centralWidget));
+    StartForm *startFormWidget = new StartForm(ui->centralWidget);
+    DefaultWidgetModel *startForm = new DefaultWidgetModel(startFormWidget);
     setWidgetsGeometry(*startForm);
     startForm->show();
     widgets->append(startForm);
@@ -108,9 +138,10 @@ void MainWindow::addWidgets()
 
 //    DefaultWidgetModel *ilyaForm= new DefaultWidgetModel(new Widget(ui->centralWidget));
 //    setWidgetsGeometry(*ilyaForm);
-//    widgets->append(ilyaForm);
+//    widgets->append( ilyaForm);
 
-
+    SubProcessModel *subProcessModel = new SubProcessModel(startFormWidget);
+    subProcesses->insert(*subProcessModel->widget->getWidgetName(),subProcessModel);
     // todo сюды добавлять аналогично как с kolaynForm
 }
 

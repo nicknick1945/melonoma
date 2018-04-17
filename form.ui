@@ -224,6 +224,19 @@
     <string>бинаризовать</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="testButton">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>100</y>
+     <width>88</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>testButton</string>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>

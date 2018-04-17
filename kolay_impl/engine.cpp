@@ -4,7 +4,6 @@
 #include "kolya_headers/contrastfilter.h"
 #include "kolya_headers/sobelfilter.h"
 #include "kolya_headers/gaussfilter.h"
-#include "medianfilter.h"
 #include "kolya_headers/otsybinarizer.h"
 #include "kolya_headers/skiletizationfilter.h"
 #include "kolya_headers/countvoloscalculater.h"
