@@ -39,3 +39,8 @@ void StartForm::on_pushButton_2_clicked()
 {
     lockNextButton();
 }
+
+void StartForm::on_testSubProcess_clicked()
+{
+    returnFromSubProcess();
+}

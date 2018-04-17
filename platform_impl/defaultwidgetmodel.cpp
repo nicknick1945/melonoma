@@ -27,6 +27,12 @@ void DefaultWidgetModel::close()
     widget->close();
 }
 
+void DefaultWidgetModel::onReturnFromSubProcess()
+{
+    widget->onReturnFromSubProcess();
+    widget->show();
+}
+
 void DefaultWidgetModel::setGeometry(int a, int b, int c, int d)
 {
     widget->setGeometry(a,b,c,d);

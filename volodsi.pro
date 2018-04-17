@@ -42,7 +42,6 @@ SOURCES += main.cpp\
     kolay_impl/utils.cpp \
     kolay_impl/sobelfilter.cpp \
     kolay_impl/gaussfilter.cpp \
-#    kolay_impl/medianfilter.cpp \
     kolay_impl/mysuperfilter.cpp \
     kolay_impl/skiletizationfilter.cpp \
     kolay_impl/otsybinarizer.cpp \
@@ -50,6 +49,7 @@ SOURCES += main.cpp\
     kolay_impl/scenezoom.cpp \
     kolay_impl/form.cpp \
     kolay_impl/startform.cpp \
+    kolay_impl/enginefactory.cpp \
     platform_impl/cachefactory.cpp \
     platform_impl/cache.cpp \
     platform_impl/defaultwidget.cpp \
@@ -87,7 +87,8 @@ SOURCES += main.cpp\
     timofey/haralickfeatures.cpp\
     timofey/timofeywindow.cpp\
     timofey/kernel.cpp\
-    timofey/timofeyzoom.cpp
+    timofey/timofeyzoom.cpp \
+    platform_impl/subprocessmodel.cpp
 #	ilya/transformations.cpp\
 #	ilya/scenezoom.cpp\
 #	ilya/mainwindow.cpp\
@@ -104,7 +105,6 @@ HEADERS  += kolya_headers/engine.h \
     kolya_headers/contrastfilter.h \
     kolya_headers/sobelfilter.h \
     kolya_headers/gaussfilter.h \
-#    kolya_headers/medianfilter.h \
     kolya_headers/mysuperfilter.h \
     kolya_headers/skiletizationfilter.h \
     kolya_headers/otsybinarizer.h \
@@ -112,6 +112,7 @@ HEADERS  += kolya_headers/engine.h \
     kolya_headers/scenezoom.h \
     kolya_headers/form.h \
     kolya_headers/startform.h \
+    kolya_headers/enginefactory.h \
     platform_headers/mainwindow.h \
     platform_headers/defaultwidgetmodel.h \
     platform_headers/loggerfactory.h \
@@ -157,7 +158,9 @@ HEADERS  += kolya_headers/engine.h \
     timofey/haralickfeatures.h \
     timofey/timofeywindow.h \
     timofey/kernel.h \
-    timofey/timofeyzoom.h
+    timofey/timofeyzoom.h \
+    platform_headers/subprocessmodel.h
+
 #    ilya/transformations.h\
 #    ilya/scenezoom.h\
 #    ilya/opencvtransform.h\

@@ -15,11 +15,14 @@ class DefaultWidget : public QWidget
 public:
     explicit DefaultWidget(QWidget *parent = 0);
     virtual QString* getWidgetName()=0;
-    void preDestroy();
+    virtual void preDestroy();
     virtual void onLoad();
+    virtual void onReturnFromSubProcess();
+    virtual void returnFromSubProcess();
     void setMainWindow(MainWindow *mainWindow_);
     void unlockNextButton();
     void lockNextButton();
+    virtual void goToSubProcess(QString processName);
 signals:
 
 protected:

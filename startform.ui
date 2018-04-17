@@ -61,6 +61,19 @@
     <string>PushButton</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="testSubProcess">
+   <property name="geometry">
+    <rect>
+     <x>127</x>
+     <y>330</y>
+     <width>181</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>retuenToProcess</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

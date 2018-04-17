@@ -26,6 +26,8 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_testSubProcess_clicked();
+
 private:
     CacheFactory *cahceFactory = new CacheFactory();
     Ui::StartForm *ui;
