@@ -3,8 +3,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <stdlib.h>
 #include <stdio.h>
-#include <ilya/mainwindow.h>
-#include <ilya/transformations.h>
+#include "ilyawindow.h"
 #include <ilya/opencvtransform.h>
 using namespace std;
 using namespace cv;

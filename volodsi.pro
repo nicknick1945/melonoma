@@ -19,8 +19,8 @@ TEMPLATE = app
 #LIBS += C:\Users\4ssk\Downloads\volodsi\volodsi\timofey\bin\libopencv_features2d2413.dll
 #LIBS += C:\Users\4ssk\Down loads\volodsi\volodsi\timofey\bin\libopencv_calib3d2413.dll
 
-INCLUDEPATH += /usr/local/include/opencv
-LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_features2d -lopencv_calib3d -lopencv_photo
+#INCLUDEPATH += /usr/local/include/opencv
+#LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_features2d -lopencv_calib3d -lopencv_photo
 
 #INCLUDEPATH += usr/local/include
 
@@ -31,6 +31,19 @@ LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lope
 #LIBS += usr/local/lib/opencv_features2d3.2.0
 #LIBS += usr/local/lib/opencv_calib3d3.2.0
 #LIBS += usr/local/lib/opencv_photo3.2.0
+
+
+#Ilya's Paths
+INCLUDEPATH += C:\opencv\build\include
+
+
+LIBS += C:\opencv-build\bin\libopencv_core341.dll
+LIBS += C:\opencv-build\bin\libopencv_highgui341.dll
+LIBS += C:\opencv-build\bin\libopencv_imgcodecs341.dll
+LIBS += C:\opencv-build\bin\libopencv_imgproc341.dll
+LIBS += C:\opencv-build\bin\libopencv_features2d341.dll
+LIBS += C:\opencv-build\bin\libopencv_calib3d341.dll
+LIBS += C:\opencv-build\bin\libopencv_photo341.dll
 
 
 SOURCES += main.cpp\
@@ -88,12 +101,11 @@ SOURCES += main.cpp\
     timofey/timofeywindow.cpp\
     timofey/kernel.cpp\
     timofey/timofeyzoom.cpp \
-    platform_impl/subprocessmodel.cpp
-#	ilya/transformations.cpp\
-#	ilya/scenezoom.cpp\
-#	ilya/mainwindow.cpp\
-#	ilya/dilatation.cpp\
-#	ilya/algorithms.cpp
+    platform_impl/subprocessmodel.cpp \
+        ilya/dilatation.cpp\
+        ilya/algorithms.cpp \
+    ilya/ilyawindow.cpp \
+    ilya/popup.cpp
 
 
 
@@ -159,22 +171,23 @@ HEADERS  += kolya_headers/engine.h \
     timofey/timofeywindow.h \
     timofey/kernel.h \
     timofey/timofeyzoom.h \
-    platform_headers/subprocessmodel.h
+    platform_headers/subprocessmodel.h \
+    ilya/opencvtransform.h\
+    ilya/mygraphicsview.h\
+    ilya/kernels.h\
+    ilya/dilatation.h\
+    ilya/algorithms.h \
+    ilya/ilyawindow.h \
+    ilya/popup.h
 
-#    ilya/transformations.h\
-#    ilya/scenezoom.h\
-#    ilya/opencvtransform.h\
-#    ilya/mygraphicsview.h\
-#    ilya/mainwindow.h\
-#    ilya/kernels.h\
-#    ilya/dilatation.h\
-#    ilya/algorithms.h
 FORMS    += mainwindow.ui \
     form.ui \
     startform.ui \
     sasha/sashawindow.ui \
     semion/widget.ui \
-    timofey/timofeywindow.ui
-#    ilya/ilyaform.ui
+    timofey/timofeywindow.ui \
+    ilya/ilyawindow.ui
 
 DISTFILES +=
+
+CONFIG+=c++14
