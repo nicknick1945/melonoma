@@ -14,7 +14,7 @@
 #include <functional>
 #include "sasha/sashawindow.h"
 #include "semion/widget.h"
-//#include "ilya/mainwindow.h"
+#include "ilya/ilyawindow.h"
 #include "timofey/timofeywindow.h"
 
 
@@ -136,9 +136,9 @@ void MainWindow::addWidgets()
     setWidgetsGeometry(*timofeyForm);
     widgets->append(timofeyForm);
 
-//    DefaultWidgetModel *ilyaForm= new DefaultWidgetModel(new Widget(ui->centralWidget));
-//    setWidgetsGeometry(*ilyaForm);
-//    widgets->append( ilyaForm);
+    DefaultWidgetModel *ilyaForm= new DefaultWidgetModel(new IlyaWindow(ui->centralWidget));
+    setWidgetsGeometry(*ilyaForm);
+    widgets->append(ilyaForm);
 
     SubProcessModel *subProcessModel = new SubProcessModel(startFormWidget);
     subProcesses->insert(*subProcessModel->widget->getWidgetName(),subProcessModel);

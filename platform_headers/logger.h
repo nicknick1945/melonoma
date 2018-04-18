@@ -1,7 +1,10 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 #include "qstring.h"
-
+#undef INFO
+#undef DEBUG
+#undef ERROR
+#undef UNDEFINED
 enum LogLevel{INFO,DEBUG,ERROR,UNDEFIEND};
 
 enum WorkRegim{

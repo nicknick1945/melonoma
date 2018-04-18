@@ -28,7 +28,7 @@ public:
     QWidget *currentForm ;
     void lockNextNutton();
     void unlockNextButton();
-    ~MainWindow();
+    ~ MainWindow();
     void goToSubProcess(QString subProcessName);
     void returnFromSubProcess();
     void next();
