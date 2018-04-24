@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -34,16 +34,16 @@ TEMPLATE = app
 
 
 #Ilya's Paths
-INCLUDEPATH += C:\opencv\build\include
+#INCLUDEPATH += C:\opencv\build\include
 
 
-LIBS += C:\opencv-build\bin\libopencv_core341.dll
-LIBS += C:\opencv-build\bin\libopencv_highgui341.dll
-LIBS += C:\opencv-build\bin\libopencv_imgcodecs341.dll
-LIBS += C:\opencv-build\bin\libopencv_imgproc341.dll
-LIBS += C:\opencv-build\bin\libopencv_features2d341.dll
-LIBS += C:\opencv-build\bin\libopencv_calib3d341.dll
-LIBS += C:\opencv-build\bin\libopencv_photo341.dll
+#LIBS += C:\opencv-build\bin\libopencv_core341.dll
+#LIBS += C:\opencv-build\bin\libopencv_highgui341.dll
+#LIBS += C:\opencv-build\bin\libopencv_imgcodecs341.dll
+#LIBS += C:\opencv-build\bin\libopencv_imgproc341.dll
+#LIBS += C:\opencv-build\bin\libopencv_features2d341.dll
+#LIBS += C:\opencv-build\bin\libopencv_calib3d341.dll
+#LIBS += C:\opencv-build\bin\libopencv_photo341.dll
 
 
 SOURCES += main.cpp\
@@ -70,42 +70,44 @@ SOURCES += main.cpp\
     platform_impl/loggerfactory.cpp \
     platform_impl/logger.cpp \
     platform_impl/mainwindow.cpp \
-    sasha/imagematrix.cpp \
-    sasha/processing.cpp \
-    sasha/viewer.cpp \
-    sasha/features.cpp \
-    sasha/sashawindow.cpp\
-    semion/widget.cpp\
-    semion/content.cpp\
-    semion/imageview.cpp\
-    semion/SLib/Classifying/skneighborsclassifier.cpp\
-    semion/SLib/Components/sfunctors.cpp\
-    semion/SLib/Components/slinearalgebra.cpp\
-    semion/SLib/Components/smaincomponents.cpp\
-    semion/SLib/Core/sdataframe.cpp\
-    semion/SLib/Core/simagedescriptor.cpp\
-    semion/SLib/Core/smatrix.cpp\
-    semion/SLib/Core/ssegmentationmap.cpp\
-    semion/SLib/Features/sadjacencymatrix.cpp\
-    semion/SLib/Features/shistogram.cpp\
-    semion/SLib/Features/steacher.cpp\
-    semion/SLib/Processing/sprocessing.cpp\
-    semion/SLib/Processing/sconveyor.cpp\
-    semion/SLib/Processing/sbilateralfilter.cpp\
-    semion/SLib/Processing/sedgedetection.cpp\
-    semion/SLib/Processing/sgaussfilter.cpp\
-    semion/SLib/Processing/slaplaceoperator.cpp\
-    semion/SLib/Processing/ssquaremask.cpp\
-    semion/SLib/Processing/sthreshold.cpp\
-    timofey/haralickfeatures.cpp\
-    timofey/timofeywindow.cpp\
-    timofey/kernel.cpp\
-    timofey/timofeyzoom.cpp \
     platform_impl/subprocessmodel.cpp \
-        ilya/dilatation.cpp\
-        ilya/algorithms.cpp \
-    ilya/ilyawindow.cpp \
-    ilya/popup.cpp
+    katy/feature_tables.cpp
+#    sasha/imagematrix.cpp \
+#    sasha/processing.cpp \
+#    sasha/viewer.cpp \
+#    sasha/features.cpp \
+#    sasha/sashawindow.cpp\
+#    semion/widget.cpp\
+#    semion/content.cpp\
+#    semion/imageview.cpp\
+#    semion/SLib/Classifying/skneighborsclassifier.cpp\
+#    semion/SLib/Components/sfunctors.cpp\
+#    semion/SLib/Components/slinearalgebra.cpp\
+#    semion/SLib/Components/smaincomponents.cpp\
+#    semion/SLib/Core/sdataframe.cpp\
+#    semion/SLib/Core/simagedescriptor.cpp\
+#    semion/SLib/Core/smatrix.cpp\
+#    semion/SLib/Core/ssegmentationmap.cpp\
+#    semion/SLib/Features/sadjacencymatrix.cpp\
+#    semion/SLib/Features/shistogram.cpp\
+#    semion/SLib/Features/steacher.cpp\
+#    semion/SLib/Processing/sprocessing.cpp\
+#    semion/SLib/Processing/sconveyor.cpp\
+#    semion/SLib/Processing/sbilateralfilter.cpp\
+#    semion/SLib/Processing/sedgedetection.cpp\
+#    semion/SLib/Processing/sgaussfilter.cpp\
+#    semion/SLib/Processing/slaplaceoperator.cpp\
+#    semion/SLib/Processing/ssquaremask.cpp\
+#    semion/SLib/Processing/sthreshold.cpp\
+#    timofey/haralickfeatures.cpp\
+#    timofey/timofeywindow.cpp\
+#    timofey/kernel.cpp\
+#    timofey/timofeyzoom.cpp \
+#
+#        ilya/dilatation.cpp\
+#        ilya/algorithms.cpp \
+#    ilya/ilyawindow.cpp \
+#    ilya/popup.cpp
 
 
 
@@ -132,53 +134,54 @@ HEADERS  += kolya_headers/engine.h \
     platform_headers/cachefactory.h \
     platform_headers/cache.h \
     platform_headers/defaultwidget.h \
-    sasha/imagematrix.h \
-    sasha/processing.h \
-    sasha/viewer.h \
-    sasha/features.h \
-    sasha/sashawindow.h \
-    semion/widget.h \
-    semion/content.h \
-    semion/imageview.h \
-    semion/SLib/classifying.h \
-    semion/SLib/components.h \
-    semion/SLib/core.h \
-    semion/SLib/features.h \
-    semion/SLib/processing.h \
-    semion/database.h \
-    semion/SLib/Classifying/sabstractclassifier.h \
-    semion/SLib/Classifying/skneighborsclassifier.h \
-    semion/SLib/Components/sfunctors.h \
-    semion/SLib/Components/slinearalgebra.h \
-    semion/SLib/Components/smaincomponents.h \
-    semion/SLib/Core/sdataframe.h \
-    semion/SLib/Core/simagedescriptor.h \
-    semion/SLib/Core/smatrix.h \
-    semion/SLib/Core/ssegmentationmap.h \
-    semion/SLib/Features/sabstractfeatures.h \
-    semion/SLib/Features/sadjacencymatrix.h \
-    semion/SLib/Features/shistogram.h \
-    semion/SLib/Features/steacher.h \
-    semion/SLib/Processing/sprocessing.h \
-    semion/SLib/Processing/sconveyor.h \
-    semion/SLib/Processing/sbilateralfilter.h \
-    semion/SLib/Processing/sedgedetection.h \
-    semion/SLib/Processing/sgaussfilter.h \
-    semion/SLib/Processing/slaplaceoperator.h \
-    semion/SLib/Processing/ssquaremask.h \
-    semion/SLib/Processing/sthreshold.h \
-    timofey/haralickfeatures.h \
-    timofey/timofeywindow.h \
-    timofey/kernel.h \
-    timofey/timofeyzoom.h \
-    platform_headers/subprocessmodel.h \
-    ilya/opencvtransform.h\
-    ilya/mygraphicsview.h\
-    ilya/kernels.h\
-    ilya/dilatation.h\
-    ilya/algorithms.h \
-    ilya/ilyawindow.h \
-    ilya/popup.h
+    katy/feature_tables.h
+#    sasha/imagematrix.h \
+#    sasha/processing.h \
+#    sasha/viewer.h \
+#    sasha/features.h \
+#    sasha/sashawindow.h \
+#    semion/widget.h \
+#    semion/content.h \
+#    semion/imageview.h \
+#    semion/SLib/classifying.h \
+#    semion/SLib/components.h \
+#    semion/SLib/core.h \
+#    semion/SLib/features.h \
+#    semion/SLib/processing.h \
+#    semion/database.h \
+#    semion/SLib/Classifying/sabstractclassifier.h \
+#    semion/SLib/Classifying/skneighborsclassifier.h \
+#    semion/SLib/Components/sfunctors.h \
+#    semion/SLib/Components/slinearalgebra.h \
+#    semion/SLib/Components/smaincomponents.h \
+#    semion/SLib/Core/sdataframe.h \
+#    semion/SLib/Core/simagedescriptor.h \
+#    semion/SLib/Core/smatrix.h \
+#    semion/SLib/Core/ssegmentationmap.h \
+#    semion/SLib/Features/sabstractfeatures.h \
+#    semion/SLib/Features/sadjacencymatrix.h \
+#    semion/SLib/Features/shistogram.h \
+#    semion/SLib/Features/steacher.h \
+#    semion/SLib/Processing/sprocessing.h \
+#    semion/SLib/Processing/sconveyor.h \
+#    semion/SLib/Processing/sbilateralfilter.h \
+#    semion/SLib/Processing/sedgedetection.h \
+#    semion/SLib/Processing/sgaussfilter.h \
+#    semion/SLib/Processing/slaplaceoperator.h \
+#    semion/SLib/Processing/ssquaremask.h \
+#    semion/SLib/Processing/sthreshold.h \
+#    timofey/haralickfeatures.h \
+#    timofey/timofeywindow.h \
+#    timofey/kernel.h \
+#    timofey/timofeyzoom.h \
+#    platform_headers/subprocessmodel.h \
+#    ilya/opencvtransform.h\
+#    ilya/mygraphicsview.h\
+#    ilya/kernels.h\
+#    ilya/dilatation.h\
+#    ilya/algorithms.h \
+#    ilya/ilyawindow.h \
+#    ilya/popup.h
 
 FORMS    += mainwindow.ui \
     form.ui \
@@ -186,7 +189,8 @@ FORMS    += mainwindow.ui \
     sasha/sashawindow.ui \
     semion/widget.ui \
     timofey/timofeywindow.ui \
-    ilya/ilyawindow.ui
+    ilya/ilyawindow.ui \
+    katy/feature_tables.ui
 
 DISTFILES +=
 
