@@ -16,6 +16,7 @@
 #include "semion/widget.h"
 //#include "ilya/mainwindow.h"
 #include "timofey/timofeywindow.h"
+#include "Alex/alexwindow.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -95,6 +96,10 @@ void MainWindow::addWidgets()
     DefaultWidgetModel *timofeyForm = new DefaultWidgetModel(new TimofeyWindow(ui->centralWidget));
     setWidgetsGeometry(*timofeyForm);
     widgets->append(timofeyForm);
+
+    /*DefaultWidgetModel *alexForm = new DefaultWidgetModel(new AlexWindow(ui->centralWidget));
+    setWidgetsGeometry(*alexForm);
+    widgets->append(alexForm); */
 
 //    DefaultWidgetModel *ilyaForm= new DefaultWidgetModel(new Widget(ui->centralWidget));
 //    setWidgetsGeometry(*ilyaForm);

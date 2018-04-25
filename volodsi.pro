@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = volodsi
 TEMPLATE = app
-#CONFIG += c++14
+CONFIG += c++14
 #INCLUDEPATH += C:\Users\4ssk\Downloads\volodsi\volodsi\timofey\include
 
 #LIBS += C:\Users\4ssk\Downloads\volodsi\volodsi\timofey\bin\libopencv_core2413.dll
@@ -19,8 +19,17 @@ TEMPLATE = app
 #LIBS += C:\Users\4ssk\Downloads\volodsi\volodsi\timofey\bin\libopencv_features2d2413.dll
 #LIBS += C:\Users\4ssk\Down loads\volodsi\volodsi\timofey\bin\libopencv_calib3d2413.dll
 
-INCLUDEPATH += /usr/local/include/opencv
-LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_features2d -lopencv_calib3d -lopencv_photo
+#INCLUDEPATH += /usr/local/include/opencv
+#LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_features2d -lopencv_calib3d -lopencv_photo
+
+INCLUDEPATH += E:/opencv/build/install/include/
+LIBS += E:/opencv/build/install/x86/mingw/bin/libopencv_core341.dll
+LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_features2d341.dll
+LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_highgui341.dll
+LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_imgcodecs341.dll
+LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_imgproc341.dll
+LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_calib3d341.dll
+LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_photo341.dll
 
 #INCLUDEPATH += usr/local/include
 
@@ -87,12 +96,15 @@ SOURCES += main.cpp\
     timofey/haralickfeatures.cpp\
     timofey/timofeywindow.cpp\
     timofey/kernel.cpp\
-    timofey/timofeyzoom.cpp
+    timofey/timofeyzoom.cpp\
+    Alex/qcustomplot.cpp \
+    Alex/alexwindow.cpp
 #	ilya/transformations.cpp\
 #	ilya/scenezoom.cpp\
 #	ilya/mainwindow.cpp\
 #	ilya/dilatation.cpp\
 #	ilya/algorithms.cpp
+
 
 
 
@@ -157,7 +169,9 @@ HEADERS  += kolya_headers/engine.h \
     timofey/haralickfeatures.h \
     timofey/timofeywindow.h \
     timofey/kernel.h \
-    timofey/timofeyzoom.h
+    timofey/timofeyzoom.h \
+    Alex/qcustomplot.h \
+    Alex/alexwindow.h
 #    ilya/transformations.h\
 #    ilya/scenezoom.h\
 #    ilya/opencvtransform.h\
@@ -165,13 +179,17 @@ HEADERS  += kolya_headers/engine.h \
 #    ilya/mainwindow.h\
 #    ilya/kernels.h\
 #    ilya/dilatation.h\
-#    ilya/algorithms.h
+#    ilya/algorithms.h \
+
+
+
 FORMS    += mainwindow.ui \
     form.ui \
     startform.ui \
     sasha/sashawindow.ui \
     semion/widget.ui \
-    timofey/timofeywindow.ui
-#    ilya/ilyaform.ui
+    timofey/timofeywindow.ui \
+    Alex/alexwindow.ui
+#    ilya/ilyaform.ui \
 
 DISTFILES +=
