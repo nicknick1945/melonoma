@@ -42,6 +42,19 @@ LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lope
 #LIBS += usr/local/lib/opencv_photo3.2.0
 
 
+#Ilya's Paths
+INCLUDEPATH += C:\opencv\build\include
+
+
+LIBS += C:\opencv-build\bin\libopencv_core341.dll
+LIBS += C:\opencv-build\bin\libopencv_highgui341.dll
+LIBS += C:\opencv-build\bin\libopencv_imgcodecs341.dll
+LIBS += C:\opencv-build\bin\libopencv_imgproc341.dll
+LIBS += C:\opencv-build\bin\libopencv_features2d341.dll
+LIBS += C:\opencv-build\bin\libopencv_calib3d341.dll
+LIBS += C:\opencv-build\bin\libopencv_photo341.dll
+
+
 SOURCES += main.cpp\
     kolay_impl/engine.cpp \
     kolay_impl/abstractfilter.cpp \
@@ -51,7 +64,6 @@ SOURCES += main.cpp\
     kolay_impl/utils.cpp \
     kolay_impl/sobelfilter.cpp \
     kolay_impl/gaussfilter.cpp \
-#    kolay_impl/medianfilter.cpp \
     kolay_impl/mysuperfilter.cpp \
     kolay_impl/skiletizationfilter.cpp \
     kolay_impl/otsybinarizer.cpp \
@@ -59,6 +71,7 @@ SOURCES += main.cpp\
     kolay_impl/scenezoom.cpp \
     kolay_impl/form.cpp \
     kolay_impl/startform.cpp \
+    kolay_impl/enginefactory.cpp \
     platform_impl/cachefactory.cpp \
     platform_impl/cache.cpp \
     platform_impl/defaultwidget.cpp \
@@ -98,15 +111,13 @@ SOURCES += main.cpp\
     timofey/kernel.cpp\
     timofey/timofeyzoom.cpp\
     Alex/qcustomplot.cpp \
-    Alex/alexwindow.cpp
-#	ilya/transformations.cpp\
-#	ilya/scenezoom.cpp\
-#	ilya/mainwindow.cpp\
-#	ilya/dilatation.cpp\
-#	ilya/algorithms.cpp
-
-
-
+    Alex/alexwindow.cpp \
+    timofey/timofeyzoom.cpp \
+    platform_impl/subprocessmodel.cpp \
+    ilya/dilatation.cpp\
+    ilya/algorithms.cpp \
+    ilya/ilyawindow.cpp \
+    ilya/popup.cpp
 
 HEADERS  += kolya_headers/engine.h \
     kolya_headers/abstractfilter.h \
@@ -116,7 +127,6 @@ HEADERS  += kolya_headers/engine.h \
     kolya_headers/contrastfilter.h \
     kolya_headers/sobelfilter.h \
     kolya_headers/gaussfilter.h \
-#    kolya_headers/medianfilter.h \
     kolya_headers/mysuperfilter.h \
     kolya_headers/skiletizationfilter.h \
     kolya_headers/otsybinarizer.h \
@@ -124,6 +134,7 @@ HEADERS  += kolya_headers/engine.h \
     kolya_headers/scenezoom.h \
     kolya_headers/form.h \
     kolya_headers/startform.h \
+    kolya_headers/enginefactory.h \
     platform_headers/mainwindow.h \
     platform_headers/defaultwidgetmodel.h \
     platform_headers/loggerfactory.h \
@@ -171,17 +182,15 @@ HEADERS  += kolya_headers/engine.h \
     timofey/kernel.h \
     timofey/timofeyzoom.h \
     Alex/qcustomplot.h \
-    Alex/alexwindow.h
-#    ilya/transformations.h\
-#    ilya/scenezoom.h\
-#    ilya/opencvtransform.h\
-#    ilya/mygraphicsview.h\
-#    ilya/mainwindow.h\
-#    ilya/kernels.h\
-#    ilya/dilatation.h\
-#    ilya/algorithms.h \
-
-
+    Alex/alexwindow.h \
+    platform_headers/subprocessmodel.h \
+    ilya/opencvtransform.h\
+    ilya/mygraphicsview.h\
+    ilya/kernels.h\
+    ilya/dilatation.h\
+    ilya/algorithms.h \
+    ilya/ilyawindow.h \
+    ilya/popup.h
 
 FORMS    += mainwindow.ui \
     form.ui \
@@ -189,7 +198,7 @@ FORMS    += mainwindow.ui \
     sasha/sashawindow.ui \
     semion/widget.ui \
     timofey/timofeywindow.ui \
-    Alex/alexwindow.ui
-#    ilya/ilyaform.ui \
+    Alex/alexwindow.ui\
+    ilya/ilyawindow.ui
 
 DISTFILES +=

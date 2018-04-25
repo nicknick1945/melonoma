@@ -14,19 +14,30 @@
 #include <functional>
 #include "sasha/sashawindow.h"
 #include "semion/widget.h"
-//#include "ilya/mainwindow.h"
+#include "ilya/ilyawindow.h"
 #include "timofey/timofeywindow.h"
 #include "Alex/alexwindow.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
+    ui(new Ui::MainWindow){
+
     ui->setupUi(this);
     ui->previous->hide();
     widgets = new QList<DefaultWidgetModel*>();
+    subProcesses = new QHash<QString,DefaultWidgetModel*>();
     addWidgets();
+}
+
+void MainWindow::lockNextNutton()
+{
+    ui->nextButton->setEnabled(false);
+}
+
+void MainWindow::unlockNextButton()
+{
+    ui->nextButton->setEnabled(true);
 }
 
 MainWindow::~MainWindow()
@@ -34,17 +45,44 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::setWidgetsGeometry(DefaultWidgetModel &widget)
+void MainWindow::goToSubProcess(QString subProcessName)
 {
+    if(subProcesses->contains(subProcessName)){
+        widgets->at(currentWidgetNumber)->close();
+        QString message = "sub Process name ";
+        message.append(subProcessName);
+        logger->debug(message);
+        currentSubProcessName = new QString(subProcessName);
+        subProcesses->value(subProcessName)->show();
+
+    }else {
+        logger->error("sub process not found");
+    }
+}
+
+void MainWindow::returnFromSubProcess()
+{
+    if(subProcesses->contains(*currentSubProcessName)){
+        subProcesses->value(*currentSubProcessName)->close();
+        QString message = "return form subprocess name ";
+        message.append(*currentSubProcessName);
+        logger->debug(message);
+        widgets->at(currentWidgetNumber)->onReturnFromSubProcess();
+    }else {
+        logger->error("mega error nu vse trendec");
+    }
+}
+
+
+void MainWindow::setWidgetsGeometry(DefaultWidgetModel &widget){
+    widget.widget->setMainWindow(this);
     widget.setGeometry(30,30,900,560);
     widget.close();
 }
 
 
-void MainWindow::on_nextButton_clicked()
+void MainWindow::next()
 {
-
     for(int i = 0 ; i < widgets->size() ; i ++ ){
         widgets->at(i)->close();
     }
@@ -55,12 +93,13 @@ void MainWindow::on_nextButton_clicked()
     }
     currentWidgetNumber = currentWidgetNumber+1;
     this->update();
-
-
 }
 
-void MainWindow::on_previous_clicked()
-{
+void MainWindow::on_nextButton_clicked(){
+    next();
+}
+
+void MainWindow::on_previous_clicked(){
     for(int i = 0 ; i < widgets->size() ; i ++ ){
         widgets->at(i)->close();
     }
@@ -76,7 +115,8 @@ void MainWindow::on_previous_clicked()
 void MainWindow::addWidgets()
 {
 
-    DefaultWidgetModel *startForm = new DefaultWidgetModel(new StartForm(ui->centralWidget));
+    StartForm *startFormWidget = new StartForm(ui->centralWidget);
+    DefaultWidgetModel *startForm = new DefaultWidgetModel(startFormWidget);
     setWidgetsGeometry(*startForm);
     startForm->show();
     widgets->append(startForm);
@@ -100,14 +140,16 @@ void MainWindow::addWidgets()
     DefaultWidgetModel *alexForm = new DefaultWidgetModel(new AlexWindow(ui->centralWidget));
     setWidgetsGeometry(*alexForm);
     widgets->append(alexForm);
+  
+    DefaultWidgetModel *ilyaForm= new DefaultWidgetModel(new IlyaWindow(ui->centralWidget));
+    setWidgetsGeometry(*ilyaForm);
+    widgets->append(ilyaForm);
 
-//    DefaultWidgetModel *ilyaForm= new DefaultWidgetModel(new Widget(ui->centralWidget));
-//    setWidgetsGeometry(*ilyaForm);
-//    widgets->append(ilyaForm);
-
-
+    SubProcessModel *subProcessModel = new SubProcessModel(startFormWidget);
+    subProcesses->insert(*subProcessModel->widget->getWidgetName(),subProcessModel);
     // todo сюды добавлять аналогично как с kolaynForm
 }
+
 
 
 void MainWindow::on_LoadPhotoButton_clicked()
@@ -116,4 +158,5 @@ void MainWindow::on_LoadPhotoButton_clicked()
     logger->debug("Путь к загружаемой фотографии:");
     logger->debug(imagePath);
     QImage *originalImage = Utils::loadImage(imagePath);
+    cache->setStartImage(originalImage);
 }

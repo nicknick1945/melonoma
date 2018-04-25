@@ -6,6 +6,7 @@
 #include "platform_headers/logger.h"
 #include "engine.h"
 #include "platform_headers/defaultwidget.h"
+#include "enginefactory.h"
 
 namespace Ui {
 class Form;
@@ -21,9 +22,11 @@ public:
     QImage *originalImage;
     QImage *superOriginalImage;
     QImage *tempImage = new QImage();
-    Engine *engine = new Engine();
+    EngineFactory *engineFactory = new EngineFactory();
+    Engine *engine = engineFactory->getInstance();
     QString* getWidgetName();
     explicit Form(QWidget *parent = 0);
+    void onLoad();
     ~Form();
 
 private slots:
@@ -41,6 +44,8 @@ private slots:
 
     void on_culculateCountVolos_clicked();
 
+
+    void on_testButton_clicked();
 
 private:
     Ui::Form *ui;

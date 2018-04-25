@@ -17,12 +17,20 @@ void DefaultWidgetModel::show()
     logger->info(*massege);
     widget->onLoad();
     widget->show();
+
 }
 
 void DefaultWidgetModel::close()
 {
+    widget->unlockNextButton();
     widget->preDestroy();
     widget->close();
+}
+
+void DefaultWidgetModel::onReturnFromSubProcess()
+{
+    widget->onReturnFromSubProcess();
+    widget->show();
 }
 
 void DefaultWidgetModel::setGeometry(int a, int b, int c, int d)

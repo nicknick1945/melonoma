@@ -7,6 +7,7 @@
 #include "kernels.h"
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <ilya/ilyawindow.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -36,12 +37,12 @@ void magnitude(QImage& input,const QImage& gx,const QImage& gy)
 
 QImage convolution(const auto& kernel,const QImage& image)
 {
-    int kw=kernel[0].size();
-    int kh=kernel.size();
-    int offsetx=kw/2;
-    int offsety=kw/2;
+    int kw=kernel[0].size(),kh=kernel.size(),offsetx=kw/2,offsety=kw/2;
     QImage out(image.size(),image.format());
     float sum;
+
+
+
     quint8 *line;
     const quint8 *lookup_line;
 
@@ -74,7 +75,7 @@ QImage convolution(const auto& kernel,const QImage& image)
 
     }
 
-    return out;
+            return out;
 
 }
 
@@ -92,3 +93,31 @@ QImage prewitt(const QImage& input) {
     return res;
 }
 
+QVector<QVector<double>> calculateGaussianKernel(int length, double weight)
+{
+    QVector<QVector<double>> gaussianKernel(length);
+    for (int i = 0; i < length; ++i)
+        gaussianKernel[i].resize(length);
+
+    double sumTotal = 0;
+    double distance = 0;
+
+    int kernelRadius = length / 2;
+    double calculatedEuler = 1.0 / (2.0 * M_PI * pow(weight, 2));
+
+    for (int filterY = -kernelRadius; filterY <= kernelRadius; filterY++)
+        for (int filterX = -kernelRadius; filterX <= kernelRadius; filterX++)
+        {
+            distance = ((filterX * filterX) + (filterY * filterY)) / (2 * (weight * weight));
+            gaussianKernel[filterY + kernelRadius][filterX + kernelRadius] = calculatedEuler * exp(-distance);
+            sumTotal += gaussianKernel[filterY + kernelRadius][filterX + kernelRadius];
+        }
+
+    for (int y = 0; y < length; y++)
+        for (int x = 0; x < length; x++)
+        {
+            gaussianKernel[y][x] = gaussianKernel[y][x] * (1.0 / sumTotal);
+        }
+
+    return gaussianKernel;
+}

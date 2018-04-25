@@ -10,6 +10,7 @@
 #include "QWidget"
 #include "qlist.h"
 #include "defaultwidgetmodel.h"
+#include "subprocessmodel.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,15 +23,24 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     QList<DefaultWidgetModel*> *widgets;
+    QHash<QString,DefaultWidgetModel*> *subProcesses;
+    void returnToProcess();
     QWidget *currentForm ;
-    ~MainWindow();
+    void lockNextNutton();
+    void unlockNextButton();
+    ~ MainWindow();
+    void goToSubProcess(QString subProcessName);
+    void returnFromSubProcess();
+    void next();
 
 private slots:
     void on_nextButton_clicked();
     void on_previous_clicked();
     void on_LoadPhotoButton_clicked();
 
+
 private:
+    QString * currentSubProcessName;
     LoggerFactory *loggerFactory = new LoggerFactory();
     Logger *logger = loggerFactory->getInstance();
     CacheFactory *cacheFactory = new CacheFactory();

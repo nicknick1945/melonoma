@@ -7,17 +7,17 @@ class DefaultWidgetModel
 {
 public:
     DefaultWidgetModel();
-    DefaultWidgetModel(DefaultWidget *_widget);
-    void show();
-    void close();
+    DefaultWidgetModel(DefaultWidget * _widget);
+    virtual void show();
+    virtual void close();
+    virtual void onReturnFromSubProcess();
     void setGeometry(int a, int b ,int c ,int d);
-
-private :
+    DefaultWidget *widget;
+protected:
     LoggerFactory *loggerFactory = new LoggerFactory();
     Logger *logger = loggerFactory->getInstance();
     CacheFactory *cacheFactory = new CacheFactory();
     Cache *cache = cacheFactory->getInstance();
-    DefaultWidget *widget;
 };
 
 #endif // DEFAULTWIDGETMODEL_H

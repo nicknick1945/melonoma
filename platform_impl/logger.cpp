@@ -27,7 +27,6 @@ void Logger::debug(QString message){
 }
 
 void Logger::error(QString message){
-    LogLevel logLevel = getLogLevel();
     cout<<getTime().toStdString()<<" "<<"ERROR:"<<message.toStdString()<<endl;
 }
 
@@ -42,7 +41,7 @@ LogLevel Logger::getLogLevel()
 {
     if(workRegim==LOAD_ON_START && !firstStart){
         return logLevell;
-    }else if(workRegim==LOAD_BY_MASSEG){
+    } else if(workRegim==LOAD_BY_MASSEG){
         QString line;
         QFile logLevel("logLevel.txt");// обьявляем
         if (!logLevel.open(QIODevice::ReadOnly | QIODevice::Text)){// открываем

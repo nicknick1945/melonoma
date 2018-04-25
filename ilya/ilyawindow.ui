@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>IlyaWindow</class>
+ <widget class="QWidget" name="IlyaWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1233</width>
+    <height>994</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+background-color:#1d1d1d;
+}
+
+QMenuBar{
+background-color:#1d1d1d;
+padding:5px;
+	font: 12pt &quot;MS Shell Dlg 2&quot;;
+}
+
+QMenuBar::item{
+background-color:#1d1d1d;
+color:#fff;
+padding:5px;
+
+}
+
+QMenu{
+color:#fff;
+padding:0;
+}
+
+QMenu::item:selected{
+color:#fff;
+background-color:#00aba9;
+}
+
+QTableWidget{
+background-color:#3d3d3d;
+color:#fff;
+  selection-background-color: #da532c;
+border:solid;
+border-width:3px;
+border-color:#da532c;
+}
+QHeaderView::section{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20, 158, 217, 255), stop:1 rgba(36, 158, 217, 255));
+border:none;
+border-top-style:solid;
+border-width:1px;
+border-top-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20, 158, 217, 255), stop:1 rgba(36, 158, 217, 255));
+color:#fff;
+
+}
+QHeaderView{
+background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20, 158, 217, 255), stop:1 rgba(36, 158, 217, 255));
+
+border:none;
+border-top-style:solid;
+border-width:1px;
+border-top-color:#149ED9;
+color:#fff;
+	font: 75 12pt &quot;Calibri&quot;;
+}
+
+QTableCornerButton::section{
+border:none;
+background-color:#149ED9;
+}
+
+QListWidget{
+background-color:#3d3d3d;
+color:#fff;
+}
+
+QMenu{
+background-color:#3d3d3d;
+}
+QStatusBar{
+background-color:#7e3878;
+color:#fff;
+}
+
+QPushButton{
+border-style:solid;
+
+background-color:#3d3d3d;
+color:#fff;
+border-radius:7px;
+}
+QPushButton:hover{
+color:#ccc;
+	background-color: qlineargradient(spread:pad, x1:0.517, y1:0, x2:0.517, y2:1, stop:0 rgba(45, 45, 45, 255), stop:0.505682 rgba(45, 45, 45, 255), stop:1 rgba(29, 29, 29, 255));
+	border-color:#2d89ef;
+border-width:2px;
+}
+
+QPushButton:pressed{
+background-color: qlineargradient(spread:pad, x1:0.517, y1:0, x2:0.517, y2:1, stop:0 rgba(29, 29, 29, 255), stop:0.505682 rgba(45, 45, 45, 255), stop:1 rgba(29, 29, 29, 255));
+}
+
+
+QTabWidget::tab{
+background-color:#3d3d3d;
+}
+
+QLineEdit{
+border-radius:0;
+}
+
+QProgressBar{
+border-radius:0;
+text-align:center;
+color:#fff;
+background-color:transparent;
+border: 2px solid #e3a21a;
+border-radius:7px;
+	font: 75 12pt &quot;Open Sans&quot;;
+
+}
+
+QProgressBar::chunk{
+background-color:#2d89ef;
+width:20px;
+}
+QLabel{
+color:#fff
+}
+QRadioButton{
+color:#fff
+}
+`</string>
+  </property>
+  <widget class="QWidget" name="centralWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1181</width>
+     <height>624</height>
+    </rect>
+   </property>
+   <widget class="QPushButton" name="loadButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Загрузить</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="originalImage">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>120</y>
+      <width>481</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
+    </property>
+    <property name="transformationAnchor">
+     <enum>QGraphicsView::AnchorUnderMouse</enum>
+    </property>
+    <property name="resizeAnchor">
+     <enum>QGraphicsView::AnchorUnderMouse</enum>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="filteredScene">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>120</y>
+      <width>501</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="transformationAnchor">
+     <enum>QGraphicsView::AnchorUnderMouse</enum>
+    </property>
+    <property name="resizeAnchor">
+     <enum>QGraphicsView::AnchorUnderMouse</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sobelButton">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Фильтр</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="kernelSize">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>0</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>3</number>
+    </property>
+    <property name="maximum">
+     <number>15</number>
+    </property>
+    <property name="singleStep">
+     <number>2</number>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="kernelSizeTitle">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>0</y>
+      <width>113</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="text">
+     <string>Размер ядра</string>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QSlider" name="xOrderSlider">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>0</y>
+      <width>160</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximum">
+     <number>1</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="yOrderSlider">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>40</y>
+      <width>160</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="maximum">
+     <number>1</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="zeroXOrderLabel">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>20</y>
+      <width>16</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="oneXOrderLabel">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>20</y>
+      <width>16</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="zeroYOrderLabel">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>60</y>
+      <width>16</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="oneYOrderLabel">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>50</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Фильтр</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="xLabel">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>0</y>
+      <width>16</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>x</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="yLabel">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>40</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>y</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Бинаризация</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="thresholdTypeSlider">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>30</y>
+      <width>261</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>4</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="thresholdTypeLabel">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>50</y>
+      <width>401</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0:Обычная;1:Инверсная;2:Пороговая;3:К нулю;4:Инверсия к нулю</string>
+    </property>
+   </widget>
+   <widget class="QScrollBar" name="thresholdValue">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>50</y>
+      <width>351</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="thresholdValueDisplay">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>20</y>
+      <width>41</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dilatationButton">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Дилатация</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="dilatationTypeSlider">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>70</y>
+      <width>261</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>2</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="dilatationKernelSizeSpinBox">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>60</y>
+      <width>45</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
+    <property name="maximum">
+     <number>21</number>
+    </property>
+    <property name="value">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dilatationTypeLabel">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>90</y>
+      <width>261</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string> 1. Rect;                         2.Cross             3.Ellipse</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>90</y>
+      <width>101</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Размер ядра</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="prewittButton">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Фильтр</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="medianButton">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>80</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Фильтр</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="billaterialButton">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>81</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Фильтр</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DoGButton">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>0</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Фильтр</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>116</width>
+      <height>246</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="8" column="0">
+      <widget class="QRadioButton" name="DoGRadioButton">
+       <property name="text">
+        <string>Разница гауссиан</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QRadioButton" name="radioButton">
+       <property name="text">
+        <string>Щарр</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QRadioButton" name="medianRadioButton">
+       <property name="text">
+        <string>Медианный</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QRadioButton" name="sobelRadioButton">
+       <property name="text">
+        <string>Собель</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QRadioButton" name="robertsRadioButton">
+       <property name="text">
+        <string>Робертс</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QRadioButton" name="billaterialRadioButton">
+       <property name="text">
+        <string>Билатеральный</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QRadioButton" name="dilatationRadioButton">
+       <property name="text">
+        <string>Дилатация</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QRadioButton" name="thresholdButton">
+       <property name="text">
+        <string>Бинаризация</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QRadioButton" name="prewittRadioButton">
+       <property name="text">
+        <string>Превитт</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QRadioButton" name="CannyRadioButton">
+       <property name="text">
+        <string>Кэнни</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>911</x>
+      <y>10</y>
+      <width>260</width>
+      <height>34</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0" rowspan="2">
+      <widget class="QPushButton" name="saveButton">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>Сохранить</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="switchSceneButton">
+       <property name="text">
+        <string>Поменять местами</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="inpaintButton">
+       <property name="text">
+        <string>Закрасить оригинальное изображение</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>550</y>
+      <width>241</width>
+      <height>74</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="3" column="1">
+      <widget class="QDoubleSpinBox" name="secondSigmaSpinBox"/>
+     </item>
+     <item row="0" column="1">
+      <widget class="QDoubleSpinBox" name="firstSigmaSpinBox">
+       <property name="singleStep">
+        <double>0.500000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="sigmasLineEdit">
+       <property name="text">
+        <string>Сигма первого и второго изображения</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QSlider" name="CannySlider">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>550</y>
+      <width>160</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1233</width>
+     <height>39</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>3</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>

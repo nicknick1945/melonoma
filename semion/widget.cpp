@@ -121,8 +121,6 @@ void Widget::Load(int num)
 void Widget::GenerateTable()
 {
     SDataFrame result;
-    LoggerFactory *loggerFactory = new LoggerFactory();
-    Logger *logger = loggerFactory->getInstance();
     for(size_t i=0;i<folder.size();++i)
     {
         ui->progressBar->setValue(i);

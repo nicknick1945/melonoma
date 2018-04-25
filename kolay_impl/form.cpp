@@ -14,11 +14,16 @@ Form::Form(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void Form::onLoad()
+{
+    logger->debug("функция  класса ребенка");
+    setImageToScen(*cache->getLoadedImage());
+}
+
 Form::~Form()
 {
     delete ui;
 }
-
 
 void Form::on_downloadPhotoButton_clicked(){
     QString imagePath = QFileDialog::getOpenFileName();
@@ -144,4 +149,9 @@ QString* Form::getWidgetName()
 {
     QString *widgetName = new QString("распознаватель волос widget");
     return widgetName;
+}
+
+void Form::on_testButton_clicked()
+{
+    goToSubProcess("startForm widget");
 }
