@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = volodsi
 TEMPLATE = app
-#CONFIG += c++14
+CONFIG += c++14
 #INCLUDEPATH += C:\Users\4ssk\Downloadsx\volodsi\volodsi\timofey\include
 
 #LIBS += C:\Users\4ssk\Downloads\volodsi\volodsi\timofey\bin\libopencv_core2413.dll
@@ -43,16 +43,16 @@ LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lope
 
 
 #Ilya's Paths
-INCLUDEPATH += C:\opencv\build\include
+#INCLUDEPATH += C:\opencv\build\include
 
 
-LIBS += C:\opencv-build\bin\libopencv_core341.dll
-LIBS += C:\opencv-build\bin\libopencv_highgui341.dll
-LIBS += C:\opencv-build\bin\libopencv_imgcodecs341.dll
-LIBS += C:\opencv-build\bin\libopencv_imgproc341.dll
-LIBS += C:\opencv-build\bin\libopencv_features2d341.dll
-LIBS += C:\opencv-build\bin\libopencv_calib3d341.dll
-LIBS += C:\opencv-build\bin\libopencv_photo341.dll
+#LIBS += C:\opencv-build\bin\libopencv_core341.dll
+#LIBS += C:\opencv-build\bin\libopencv_highgui341.dll
+#LIBS += C:\opencv-build\bin\libopencv_imgcodecs341.dll
+#LIBS += C:\opencv-build\bin\libopencv_imgproc341.dll
+#LIBS += C:\opencv-build\bin\libopencv_features2d341.dll
+#LIBS += C:\opencv-build\bin\libopencv_calib3d341.dll
+#LIBS += C:\opencv-build\bin\libopencv_photo341.dll
 
 
 SOURCES += main.cpp\
@@ -112,7 +112,6 @@ SOURCES += main.cpp\
     timofey/timofeyzoom.cpp\
     Alex/qcustomplot.cpp \
     Alex/alexwindow.cpp \
-    timofey/timofeyzoom.cpp \
     platform_impl/subprocessmodel.cpp \
     ilya/dilatation.cpp\
     ilya/algorithms.cpp \
@@ -142,6 +141,7 @@ HEADERS  += kolya_headers/engine.h \
     platform_headers/cachefactory.h \
     platform_headers/cache.h \
     platform_headers/defaultwidget.h \
+    platform_headers/subprocessmodel.h \
     sasha/imagematrix.h \
     sasha/processing.h \
     sasha/viewer.h \
@@ -183,7 +183,6 @@ HEADERS  += kolya_headers/engine.h \
     timofey/timofeyzoom.h \
     Alex/qcustomplot.h \
     Alex/alexwindow.h \
-    platform_headers/subprocessmodel.h \
     ilya/opencvtransform.h\
     ilya/mygraphicsview.h\
     ilya/kernels.h\

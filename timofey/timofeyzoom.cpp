@@ -1,4 +1,4 @@
-#include "timofeyzoom.h"
+#include "timofey/timofeyzoom.h"
 
 Timofeyzoom::Timofeyzoom(QWidget* parent):QGraphicsView(parent)
 {
@@ -23,7 +23,4 @@ void Timofeyzoom::wheelEvent(QWheelEvent* event)
         zoomOut();
 }
 
-Timofeyzoom::~Timofeyzoom()
-{
-
-}
+Timofeyzoom::~Timofeyzoom(){}

@@ -5,7 +5,6 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <QGraphicsScene>
-#include <windows.h>
 #include "popup.h"
 #include "platform_headers/defaultwidget.h"
 
