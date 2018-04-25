@@ -21,6 +21,12 @@ public:
     void laplace(ImageMatrix &matrix);
     void inverse(ImageMatrix &matrix);
     void histogram(QImage &orig, ImageMatrix &matrix);
+
+    bool has_black_neig(ImageMatrix &matrix, int x, int y, int r);
+    void set_neig_black(ImageMatrix &matrix, int x, int y, int r);
+    bool hasMoreThanTwoNieg(ImageMatrix &matrix, int x, int y, int r);
+    bool hasOneNeig (ImageMatrix &matrix, int x, int y, int r);
+
 };
 
 #endif // PROCESSING_H

@@ -357,32 +357,32 @@ void Processing::counting(ImageMatrix &matrix, int max_size, QImage &orig)
         }
     matrix.scale(0,1);
 
-    int mean = 0;
-    for (std::deque<QPoint> d:segments)
-    {
-        int sum=0, col=0;
-        for (QPoint p:d)
-        {
-            col+=(orig.pixelColor(p.y(), p.x()).red()+orig.pixelColor(p.y(), p.x()).green()+orig.pixelColor(p.y(), p.x()).blue())/3;
-            ++sum;
-        }
-        col/=sum;
-        mean+=col;
-    }
-    mean/=segments.size();
-    for (std::deque<QPoint> d:segments)
-    {
-        int sum=0, col=0;
-        for (QPoint p:d)
-        {
-            col+=(orig.pixelColor(p.y(), p.x()).red()+orig.pixelColor(p.y(), p.x()).green()+orig.pixelColor(p.y(), p.x()).blue())/3;
-            ++sum;
-        }
-        col/=sum;
-        if (col>mean+15)
-            for (QPoint p:d)
-                matrix.set(0,p.x(),p.y());
-    }
+//    int mean = 0;
+//    for (std::deque<QPoint> d:segments)
+//    {
+//        int sum=0, col=0;
+//        for (QPoint p:d)
+//        {
+//            col+=(orig.pixelColor(p.y(), p.x()).red()+orig.pixelColor(p.y(), p.x()).green()+orig.pixelColor(p.y(), p.x()).blue())/3;
+//            ++sum;
+//        }
+//        col/=sum;
+//        mean+=col;
+//    }
+//    mean/=segments.size();
+//    for (std::deque<QPoint> d:segments)
+//    {
+//        int sum=0, col=0;
+//        for (QPoint p:d)
+//        {
+//            col+=(orig.pixelColor(p.y(), p.x()).red()+orig.pixelColor(p.y(), p.x()).green()+orig.pixelColor(p.y(), p.x()).blue())/3;
+//            ++sum;
+//        }
+//        col/=sum;
+//        if (col>mean+15)
+//            for (QPoint p:d)
+//                matrix.set(0,p.x(),p.y());
+//    }
 
     matrix.scale(0,255);
 }
@@ -454,3 +454,58 @@ void Processing::histogram(QImage &orig, ImageMatrix &matrix)
                     matrix.set(0,i,j);
             }
 }
+
+
+
+bool Processing::has_black_neig(ImageMatrix &matrix, int x, int y, int r)
+{
+    int xn, yn;
+    if (matrix.get(x, y) == 0)
+        return true;
+    for (int i=-r*2; i<=r*2; ++i)
+        for (int j=-r*2; j<=r*2; ++j)
+        {
+            xn = x+i; yn = y+j;
+            if (matrix.get(xn, yn) == 0)
+                return true;
+        }
+    return false;
+}
+
+void Processing::set_neig_black(ImageMatrix &matrix, int x, int y, int r)
+{
+    int xn, yn;
+    for (int i=-r*2; i<=r*2; ++i)
+        for (int j=-r*2; j<=r*2; ++j)
+        {
+            xn = x+i; yn = y+j;
+            matrix.set(0,xn,yn);
+        }
+}
+
+bool Processing::hasMoreThanTwoNieg(ImageMatrix &matrix, int x, int y, int r)
+{
+    int xn, yn, count = 0;
+    for (int i=-r; i<=r; ++i)
+        for (int j=-r; j<=r; ++j)
+        {
+            xn = x+i; yn = y+j;
+            if (matrix.get(xn, yn) == 1)
+                ++count;
+        }
+    return count > 2;
+}
+
+bool Processing::hasOneNeig(ImageMatrix &matrix, int x, int y, int r)
+{
+    int xn, yn, count = 0;
+    for (int i=-r; i<=r; ++i)
+        for (int j=-r; j<=r; ++j)
+        {
+            xn = x+i; yn = y+j;
+            if (matrix.get(xn, yn) == 1)
+                ++count;
+        }
+    return count == 1;
+}
+

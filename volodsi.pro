@@ -34,16 +34,16 @@ TEMPLATE = app
 
 
 #Ilya's Paths
-INCLUDEPATH += C:\opencv\build\include
+INCLUDEPATH += C:\Programs\opencv32\build\include
 
 
-LIBS += C:\opencv-build\bin\libopencv_core341.dll
-LIBS += C:\opencv-build\bin\libopencv_highgui341.dll
-LIBS += C:\opencv-build\bin\libopencv_imgcodecs341.dll
-LIBS += C:\opencv-build\bin\libopencv_imgproc341.dll
-LIBS += C:\opencv-build\bin\libopencv_features2d341.dll
-LIBS += C:\opencv-build\bin\libopencv_calib3d341.dll
-LIBS += C:\opencv-build\bin\libopencv_photo341.dll
+LIBS += C:\Programs\opencv32\release\bin\libopencv_core320.dll
+LIBS += C:\Programs\opencv32\release\bin\libopencv_highgui320.dll
+LIBS += C:\Programs\opencv32\release\bin\libopencv_imgcodecs320.dll
+LIBS += C:\Programs\opencv32\release\bin\libopencv_imgproc320.dll
+LIBS += C:\Programs\opencv32\release\bin\libopencv_features2d320.dll
+LIBS += C:\Programs\opencv32\release\bin\libopencv_calib3d320.dll
+LIBS += C:\Programs\opencv32\release\bin\libopencv_photo320.dll
 
 
 SOURCES += main.cpp\
