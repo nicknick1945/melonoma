@@ -13,10 +13,10 @@
 #include "platform_headers/defaultwidgetmodel.h"
 #include <functional>
 #include "katy/feature_tables.h"
-//#include "sasha/sashawindow.h"
-//#include "semion/widget.h"
-//#include "ilya/ilyawindow.h?"
-//#include "timofey/timofeywindow.h"
+#include "sasha/sashawindow.h"
+#include "semion/widget.h"
+#include "ilya/ilyawindow.h"
+#include "timofey/timofeywindow.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -125,26 +125,29 @@ void MainWindow::addWidgets()
     setWidgetsGeometry(*kolaynForm);
     widgets->append(kolaynForm);
 
+
+    DefaultWidgetModel *sashaForm = new DefaultWidgetModel(new SashaWidget(ui->centralWidget));
+    setWidgetsGeometry(*sashaForm);
+    widgets->append(sashaForm);
+
+    DefaultWidgetModel *semionForm= new DefaultWidgetModel(new Widget(ui->centralWidget));
+    setWidgetsGeometry(*semionForm);
+    widgets->append(semionForm);
+
+    DefaultWidgetModel *timofeyForm = new DefaultWidgetModel(new TimofeyWindow(ui->centralWidget));
+    setWidgetsGeometry(*timofeyForm);
+    widgets->append(timofeyForm);
+
+    DefaultWidgetModel *ilyaForm= new DefaultWidgetModel(new IlyaWindow(ui->centralWidget));
+    setWidgetsGeometry(*ilyaForm);
+    widgets->append(ilyaForm);
+
     DefaultWidgetModel *katyForm = new DefaultWidgetModel(new feature_tables(ui->centralWidget));
     setWidgetsGeometry(*katyForm);
     widgets->append(katyForm);
 
 
-//    DefaultWidgetModel *sashaForm = new DefaultWidgetModel(new SashaWidget(ui->centralWidget));
-//    setWidgetsGeometry(*sashaForm);
-//    widgets->append(sashaForm);
 
-//    DefaultWidgetModel *semionForm= new DefaultWidgetModel(new Widget(ui->centralWidget));
-//    setWidgetsGeometry(*semionForm);
-//    widgets->append(semionForm);
-
-//    DefaultWidgetModel *timofeyForm = new DefaultWidgetModel(new TimofeyWindow(ui->centralWidget));
-//    setWidgetsGeometry(*timofeyForm);
-//    widgets->append(timofeyForm);
-
-//    DefaultWidgetModel *ilyaForm= new DefaultWidgetModel(new IlyaWindow(ui->centralWidget));
-//    setWidgetsGeometry(*ilyaForm);
-//    widgets->append(ilyaForm);
 
     SubProcessModel *subProcessModel = new SubProcessModel(startFormWidget);
     subProcesses->insert(*subProcessModel->widget->getWidgetName(),subProcessModel);
