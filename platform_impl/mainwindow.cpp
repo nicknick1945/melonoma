@@ -37,7 +37,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::setWidgetsGeometry(DefaultWidgetModel &widget)
 {
-    widget.setGeometry(30,30,900,530);
+    widget.setGeometry(30,30,900,560);
     widget.close();
 }
 
@@ -97,9 +97,9 @@ void MainWindow::addWidgets()
     setWidgetsGeometry(*timofeyForm);
     widgets->append(timofeyForm);
 
-    /*DefaultWidgetModel *alexForm = new DefaultWidgetModel(new AlexWindow(ui->centralWidget));
+    DefaultWidgetModel *alexForm = new DefaultWidgetModel(new AlexWindow(ui->centralWidget));
     setWidgetsGeometry(*alexForm);
-    widgets->append(alexForm); */
+    widgets->append(alexForm);
 
 //    DefaultWidgetModel *ilyaForm= new DefaultWidgetModel(new Widget(ui->centralWidget));
 //    setWidgetsGeometry(*ilyaForm);

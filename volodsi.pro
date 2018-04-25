@@ -10,8 +10,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = volodsi
 TEMPLATE = app
-CONFIG += c++14
-#INCLUDEPATH += C:\Users\4ssk\Downloads\volodsi\volodsi\timofey\include
+#CONFIG += c++14
+#INCLUDEPATH += C:\Users\4ssk\Downloadsx\volodsi\volodsi\timofey\include
 
 #LIBS += C:\Users\4ssk\Downloads\volodsi\volodsi\timofey\bin\libopencv_core2413.dll
 #LIBS += C:\Users\4ssk\Downloads\volodsi\volodsi\timofey\bin\libopencv_highgui2413.dll
@@ -19,17 +19,17 @@ CONFIG += c++14
 #LIBS += C:\Users\4ssk\Downloads\volodsi\volodsi\timofey\bin\libopencv_features2d2413.dll
 #LIBS += C:\Users\4ssk\Down loads\volodsi\volodsi\timofey\bin\libopencv_calib3d2413.dll
 
-#INCLUDEPATH += /usr/local/include/opencv
-#LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_features2d -lopencv_calib3d -lopencv_photo
+INCLUDEPATH += /usr/local/include/opencv
+LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_features2d -lopencv_calib3d -lopencv_photo -lopencv_imgproc
 
-INCLUDEPATH += E:/opencv/build/install/include/
-LIBS += E:/opencv/build/install/x86/mingw/bin/libopencv_core341.dll
-LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_features2d341.dll
-LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_highgui341.dll
-LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_imgcodecs341.dll
-LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_imgproc341.dll
-LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_calib3d341.dll
-LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_photo341.dll
+#INCLUDEPATH += E:/opencv/build/install/include/
+#LIBS += E:/opencv/build/install/x86/mingw/bin/libopencv_core341.dll
+#LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_features2d341.dll
+#LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_highgui341.dll
+#LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_imgcodecs341.dll
+#LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_imgproc341.dll
+#LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_calib3d341.dll
+#LIBS +=E:/opencv/build/install/x86/mingw/bin/libopencv_photo341.dll
 
 #INCLUDEPATH += usr/local/include
 
