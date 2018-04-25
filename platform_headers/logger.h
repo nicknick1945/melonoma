@@ -25,7 +25,6 @@ private :
    WorkRegim workRegim=WorkRegim::LOAD_ON_START;
    LogLevel getLogLevel();
 
-
 };
 
 

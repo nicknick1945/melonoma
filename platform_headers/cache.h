@@ -10,7 +10,7 @@ public:
     void clearCache();
     QImage*  getLoadedImage();
     void setStartImage(QImage *iamge);
-
+    int b;
 private:
     QImage *image;
 };

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,8 +19,8 @@ TEMPLATE = app
 #LIBS += C:\Users\4ssk\Downloads\volodsi\volodsi\timofey\bin\libopencv_features2d2413.dll
 #LIBS += C:\Users\4ssk\Down loads\volodsi\volodsi\timofey\bin\libopencv_calib3d2413.dll
 
-#INCLUDEPATH += /usr/local/include/opencv
-#LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_features2d -lopencv_calib3d -lopencv_photo
+INCLUDEPATH += /usr/local/include/opencv
+LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_features2d -lopencv_calib3d -lopencv_photo -lopencv_imgproc
 
 #INCLUDEPATH += usr/local/include
 
@@ -34,16 +34,16 @@ TEMPLATE = app
 
 
 #Ilya's Paths
-INCLUDEPATH += C:\opencv\build\include
+#INCLUDEPATH += C:\opencv\build\include
 
 
-LIBS += C:\opencv-build\bin\libopencv_core341.dll
-LIBS += C:\opencv-build\bin\libopencv_highgui341.dll
-LIBS += C:\opencv-build\bin\libopencv_imgcodecs341.dll
-LIBS += C:\opencv-build\bin\libopencv_imgproc341.dll
-LIBS += C:\opencv-build\bin\libopencv_features2d341.dll
-LIBS += C:\opencv-build\bin\libopencv_calib3d341.dll
-LIBS += C:\opencv-build\bin\libopencv_photo341.dll
+#LIBS += C:\opencv-build\bin\libopencv_core341.dll
+#LIBS += C:\opencv-build\bin\libopencv_highgui341.dll
+#LIBS += C:\opencv-build\bin\libopencv_imgcodecs341.dll
+#LIBS += C:\opencv-build\bin\libopencv_imgproc341.dll
+#LIBS += C:\opencv-build\bin\libopencv_features2d341.dll
+#LIBS += C:\opencv-build\bin\libopencv_calib3d341.dll
+#LIBS += C:\opencv-build\bin\libopencv_photo341.dll
 
 
 SOURCES += main.cpp\
@@ -70,6 +70,8 @@ SOURCES += main.cpp\
     platform_impl/loggerfactory.cpp \
     platform_impl/logger.cpp \
     platform_impl/mainwindow.cpp \
+    platform_impl/subprocessmodel.cpp \
+    katy/feature_tables.cpp \
     sasha/imagematrix.cpp \
     sasha/processing.cpp \
     sasha/viewer.cpp \
@@ -101,9 +103,8 @@ SOURCES += main.cpp\
     timofey/timofeywindow.cpp\
     timofey/kernel.cpp\
     timofey/timofeyzoom.cpp \
-    platform_impl/subprocessmodel.cpp \
-        ilya/dilatation.cpp\
-        ilya/algorithms.cpp \
+    ilya/dilatation.cpp \
+    ilya/algorithms.cpp \
     ilya/ilyawindow.cpp \
     ilya/popup.cpp
 
@@ -132,6 +133,7 @@ HEADERS  += kolya_headers/engine.h \
     platform_headers/cachefactory.h \
     platform_headers/cache.h \
     platform_headers/defaultwidget.h \
+    katy/feature_tables.h \
     sasha/imagematrix.h \
     sasha/processing.h \
     sasha/viewer.h \
@@ -186,7 +188,8 @@ FORMS    += mainwindow.ui \
     sasha/sashawindow.ui \
     semion/widget.ui \
     timofey/timofeywindow.ui \
-    ilya/ilyawindow.ui
+    ilya/ilyawindow.ui \
+    katy/feature_tables.ui
 
 DISTFILES +=
 
